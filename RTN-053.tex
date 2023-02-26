@@ -1,5 +1,6 @@
 \documentclass[OPS,authoryear,toc]{lsstdoc}
 \input{meta}
+\def\milestone{ USDF ready for ComCam processing}
 
 % Package imports go here.
 
@@ -9,13 +10,13 @@
 %\input{aglossary.tex}
 %\makeglossaries
 
-\title{L2 - USDF ready for ComCam processing}
+\title{L2 - \milestone}
 
 % Optional subtitle
 % \setDocSubtitle{A subtitle}
 
 \author{%
-William O'Mullane
+William O'Mullane, K.T. Lim
 }
 
 \setDocRef{RTN-053}
@@ -27,7 +28,7 @@ William O'Mullane
 % \setDocCurator{The Curator of this Document}
 
 \setDocAbstract{%
-This is a short description of   what we will have in place for the Milestone " L2 - USDF ready for ComCam processing"  and the tests performed to confirm it is achieved. 
+This is a short description of   what we will have in place for the Milestone " L2 - USDF ready for ComCam processing"  and the tests performed to confirm it is achieved.
 }
 
 % Change history defined here.
@@ -35,7 +36,7 @@ This is a short description of   what we will have in place for the Milestone " 
 % Fields: VERSION, DATE, DESCRIPTION, OWNER NAME.
 % See LPM-51 for version number policy.
 \setDocChangeRecord{%
-  \addtohist{1}{YYYY-MM-DD}{Unreleased.}{William O'Mullane}
+  \addtohist{0.1}{2023-02-26}{Pre test.}{W. O'Mullane, K.T. Lim}
 }
 
 
@@ -46,8 +47,7 @@ This is a short description of   what we will have in place for the Milestone " 
 % Frequently for a technote we do not want a title page  uncomment this to remove the title page and changelog.
 % use \mkshorttitle to remove the extra pages
 
-% ADD CONTENT HERE
-% You can also use the \input command to include several content files.
+\input{body}
 
 \appendix
 % Include all the relevant bib files.
