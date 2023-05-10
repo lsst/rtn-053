@@ -9,6 +9,24 @@ For a given observing day, verify after the end of the day that each raw image (
 Measure the delays between completion of readout for each image and the ingestion time recorded in the Butler Registry.
 Verify that the 95th(TBD) percentile is less than 1 minute(TBD).
 
+\subsubsection{Test execution}
+\paragraph{Summit}\\
+In the repo of this document \texttt{RTN-053-summit.ipynb} give the count of ras for a given night and lists detector and exposureid for the first and last.
+\begin{verbatim}
+There are 572 raw in collection: ['LATISS/raw/all'] in: /repo/LATISS for exposure.day_obs = 20230509
+0 2023050900001
+0 2023050900572
+\end{verbatim}
+
+\paragraph{USDF}\\
+In the repo of this document \texttt{RTN-053-USDF.ipynb} gives the count of raws for the same night and lists detector and exposureid for the first and last.
+
+\begin{verbatim}
+There are 572 raw in collection: ['LATISS/raw/all'] in: /repo/embargo for exposure.day_obs = 20230509
+0 2023050900001
+0 2023050900572
+\end{verbatim}
+
 \subsection{LFA replication to USDF }
 Sample LargeFileObjectAvailable events from the USDF EFD (which will be verified as corresponding to the Summit EFD below).
 Retrieve the corresponding LFA objects from the USDF LFA object store.
