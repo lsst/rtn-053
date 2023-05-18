@@ -42,6 +42,22 @@ Time between shutter close and ingest mean:0.23482382218469838, std:0.0180585511
 \subsection{LFA replication to USDF }
 Sample LargeFileObjectAvailable events from the USDF EFD (which will be verified as corresponding to the Summit EFD below).
 Retrieve the corresponding LFA objects from the USDF LFA object store.
+\subsubsection{Test execution}
+In the same notebooks  listed earlier ther eis a section 3.2
+\paragraph{Summit}
+\begin{verbatim}
+Got 173 Large files availble since 2023-04-20 at summit
+\end{verbatim}
+
+\paragraph{USDF}
+\begin{verbatim}
+Got 173 Large files availble since 2023-04-20 at usdf
+Access result[92] https://s3.cp.lsst.org/rubinobs-lfa-cp/Electrometer:201/fits/2023/05/02/Electrometer:201_fits_2023-05-03T00:32:23.907.fits
+Access result[44] https://s3.cp.lsst.org/rubinobs-lfa-cp/Electrometer:201/fits/2023/05/02/Electrometer:201_fits_2023-05-02T23:37:56.243.fits
+Access result[83] https://s3.cp.lsst.org/rubinobs-lfa-cp/Electrometer:201/fits/2023/05/02/Electrometer:201_fits_2023-05-03T00:22:18.627.fits
+Access result[112] https://s3.cp.lsst.org/rubinobs-lfa-cp/Electrometer:201/fits/2023/05/02/Electrometer:201_fits_2023-05-03T00:54:52.978.fits
+Access result[146] https://s3.cp.lsst.org/rubinobs-lfa-cp/Electrometer:201/fits/2023/05/02/Electrometer:201_fits_2023-05-03T01:33:03.891.fits
+\end{verbatim}
 
 \subsection{Automated prompt processing}
 Verify that images taken with the ScriptQueue that have nextVisit events issued can be processed by a pipeline.
