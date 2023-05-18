@@ -3,7 +3,7 @@
 \def\milestone{ USDF ready for ComCam processing}
 
 % Package imports go here.
-
+\usepackage{pdfpages}
 % Local commands go here.
 
 %If you want glossaries
@@ -50,6 +50,11 @@ This is a short description of   what we will have in place for the Milestone " 
 \input{body}
 
 \appendix
+
+\includepdf[pages=1,pagecommand={\section{Summit Notebook \label{sec:summitnb}}}]{RTN-053-summit}
+\includepdf[pages=2-]{RTN-053-summit}
+\includepdf[pages=1,pagecommand={\section{USDF Notebook \label{sec:usdfnb}}}]{RTN-053-USDF}
+\includepdf[pages=2-]{RTN-053-USDF}
 % Include all the relevant bib files.
 % https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
 \section{References} \label{sec:bib}
