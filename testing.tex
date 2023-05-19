@@ -15,42 +15,45 @@ Verify that the 95th(TBD) percentile is less than 1 minute(TBD).
 \paragraph{Summit}
 In the repo of this document \texttt{RTN-053-summit.ipynb} (\secref{sec:summitnb}) give the count of raws for a given night and lists detector and exposureid for the first and last.
 
-\begin{verbatim}
+\begin{lstlisting}
 There are 592 raw in collection: ['LATISS/raw/all'] in: /repo/embargo for exposure.day_obs = 20230511
 0 2023051100001
 0 2023051100599
-\end{verbatim}
+\end{lstlisting}
 
 \paragraph{USDF}
 In the repo of this document \texttt{RTN-053-USDF.ipynb} (\secref{sec:usdfnb}) gives the count of raws for the same night and lists detector and exposureid for the first and last.
 
-\begin{verbatim}
+\begin{lstlisting}
 There are 592 raw in collection: ['LATISS/raw/all'] in: /repo/embargo for exposure.day_obs = 20230511
 0 2023051100001
 0 2023051100599
-\end{verbatim}
+\end{lstlisting}
 
 \paragraph {Ingest}
 Also in the USDF notebook we get the ingest time and subtract the shutter close time to calculate the
 delay to ingest.
-\begin{verbatim}
+\begin{lstlisting}
 Got Metadata for 592 exposures
 The min time was 0.19347863333343263 max time was 0.5866245333332909 minutes
 Time between shutter close and ingest mean:0.23482382218469838, std:0.018058551157743862, var:0.0003261112699168522 minutes
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{LFA replication to USDF }
 Sample LargeFileObjectAvailable events from the USDF EFD (which will be verified as corresponding to the Summit EFD below).
 Retrieve the corresponding LFA objects from the USDF LFA object store.
-\subsubsection{Test execution}
-In the same notebooks  listed earlier ther eis a section 3.2
-\paragraph{Summit}
-\begin{verbatim}
-Got 173 Large files availble since 2023-04-20 at summit
-\end{verbatim}
 
-\paragraph{USDF}
-\begin{verbatim}
+\textbf{This has been sucessfull.}
+\subsubsection{Test execution}
+In the same notebooks  listed earlier there is a section 3.2
+
+\paragraph{Summit} for given topic list large files on given day.
+\begin{lstlisting}
+Got 173 Large files availble since 2023-04-20 at summit
+\end{lstlisting}
+
+\paragraph{USDF} check same topic same day in USDF.
+\begin{lstlisting}
 Got 173 Large files availble since 2023-04-20 at usdf
 result[168] https://s3.cp.lsst.org/rubinobs-lfa-cp/Electrometer:201/fits/2023/05/02/Electrometer:201_fits_2023-05-03T01:57:36.248.fits
 Access s3://rubin:rubinobs-lfa-cp/Electrometer:201/fits/2023/05/02/Electrometer:201_fits_2023-05-03T01:57:36.248.fits
@@ -67,7 +70,7 @@ Object is 8640 bytes. b'SIMPLE  =                    T / conforms to FITS standa
 result[121] https://s3.cp.lsst.org/rubinobs-lfa-cp/Electrometer:201/fits/2023/05/02/Electrometer:201_fits_2023-05-03T01:05:01.560.fits
 Access s3://rubin:rubinobs-lfa-cp/Electrometer:201/fits/2023/05/02/Electrometer:201_fits_2023-05-03T01:05:01.560.fits
 Object is 8640 bytes. b'SIMPLE  =                    T / conforms to FITS standard
-\end{verbatim}
+\end{lstlisting}
 
 \subsection{Automated prompt processing}
 Verify that images taken with the ScriptQueue that have nextVisit events issued can be processed by a pipeline.
@@ -79,8 +82,11 @@ Choose at least 5 EFD topics at random from those available at the Summit.
 Choose at least 20 messages per topic from those available at the Summit, including 10 from the previous observing day and 10 from past history.
 Verify that all 100 messages are present in the USDF EFD.
 
+\textbf{This has been sucessfull.}
+
 Choose 5 more topics that have graphs in the Summit Chronograf.
 Verify that the graph shown for each topic for a specified time range is the same as that displayed by the USDF Chronograf.
+\subsubsection{Test execution}
 \paragraph{Summit} \label{sec:efdsummit}
 In the repo of this document \texttt{RTN-053-summit.ipynb} (\secref{sec:summitnb})  section 3.4
 selects soem 10s of monutes of data from andom topics from the same observing run abouve and from a day earlier in the month.
@@ -88,7 +94,7 @@ The results are stored in files and compared to the same  queries at USDF.
 
 This is the output from the test run:
 
-\begin{verbatim}
+\begin{lstlisting}
 lsst.sal.ATPtg.mountPositions had 29 messages
 lsst.sal.ATPtg.mountPositions had 29 older messages
 lsst.sal.MTAirCompressor.analogData had 46 messages
@@ -103,13 +109,13 @@ Random selction of five 'summit' topics ['lsst.sal.ATPtg.mountPositions',
 Random selction of five 'summit' older topics ['lsst.sal.ATPtg.mountPositions',
 'lsst.sal.MTAirCompressor.analogData', 'lsst.sal.GIS.logevent_heartbeat',
 'lsst.sal.ESS.lightningStrikeStatus'] with messages on 2023-05-02
-\end{verbatim}
+\end{lstlisting}
 
 \paragraph{USDF}
 In the repo of this document \texttt{RTN-053-USDF.ipynb} (\secref{sec:usdfnb})  section 3.4
 loads the files mentioned in \secref{sec:efdsummit} and compare them:
 
-\begin{verbatim}
+\begin{lstlisting}
 lsst.sal.ATPtg.mountPositions had 29 messages - summit had 29
 lsst.sal.MTAirCompressor.analogData had 46 messages - summit had 46
 lsst.sal.MTMount.elevationDrives had 456 messages - summit had 456
@@ -119,4 +125,4 @@ lsst.sal.ATPtg.mountPositions had 29 messages - summit had 29
 lsst.sal.MTAirCompressor.analogData had 46 messages - summit had 46
 lsst.sal.GIS.logevent_heartbeat had 30 messages - summit had 30
 lsst.sal.ESS.lightningStrikeStatus had 30 messages - summit had 30
-\end{verbatim}
+\end{lstlisting}
