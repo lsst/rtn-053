@@ -81,3 +81,42 @@ Verify that all 100 messages are present in the USDF EFD.
 
 Choose 5 more topics that have graphs in the Summit Chronograf.
 Verify that the graph shown for each topic for a specified time range is the same as that displayed by the USDF Chronograf.
+\paragraph{Summit} \label{sec:efdsummit}
+In the repo of this document \texttt{RTN-053-summit.ipynb} (\secref{sec:summitnb})  section 3.4
+selects soem 10s of monutes of data from andom topics from the same observing run abouve and from a day earlier in the month.
+The results are stored in files and compared to the same  queries at USDF.
+
+This is the output from the test run:
+
+\begin{verbatim}
+lsst.sal.ATPtg.mountPositions had 29 messages
+lsst.sal.ATPtg.mountPositions had 29 older messages
+lsst.sal.MTAirCompressor.analogData had 46 messages
+lsst.sal.MTAirCompressor.analogData had 46 older messages
+lsst.sal.MTMount.elevationDrives had 456 messages
+lsst.sal.GIS.logevent_heartbeat had 30 messages
+lsst.sal.GIS.logevent_heartbeat had 30 older messages
+lsst.sal.ESS.lightningStrikeStatus had 30 older messages
+Random selction of five 'summit' topics ['lsst.sal.ATPtg.mountPositions',
+'lsst.sal.MTAirCompressor.analogData', 'lsst.sal.MTMount.elevationDrives',
+'lsst.sal.GIS.logevent_heartbeat'] with messages on 2023-04-20
+Random selction of five 'summit' older topics ['lsst.sal.ATPtg.mountPositions',
+'lsst.sal.MTAirCompressor.analogData', 'lsst.sal.GIS.logevent_heartbeat',
+'lsst.sal.ESS.lightningStrikeStatus'] with messages on 2023-05-02
+\end{verbatim}
+
+\paragraph{USDF}
+In the repo of this document \texttt{RTN-053-USDF.ipynb} (\secref{sec:usdfnb})  section 3.4
+loads the files mentioned in \secref{sec:efdsummit} and compare them:
+
+\begin{verbatim}
+lsst.sal.ATPtg.mountPositions had 29 messages - summit had 29
+lsst.sal.MTAirCompressor.analogData had 46 messages - summit had 46
+lsst.sal.MTMount.elevationDrives had 456 messages - summit had 456
+lsst.sal.GIS.logevent_heartbeat had 30 messages - summit had 30
+Older messages
+lsst.sal.ATPtg.mountPositions had 29 messages - summit had 29
+lsst.sal.MTAirCompressor.analogData had 46 messages - summit had 46
+lsst.sal.GIS.logevent_heartbeat had 30 messages - summit had 30
+lsst.sal.ESS.lightningStrikeStatus had 30 messages - summit had 30
+\end{verbatim}
