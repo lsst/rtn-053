@@ -9,7 +9,7 @@ For a given observing day, verify after the end of the day that each raw image (
 Measure the delays between completion of readout for each image and the ingestion time recorded in the Butler Registry.
 Verify that the 95th(TBD) percentile is less than 1 minute(TBD).
 
-\textbf{This has been sucessfull.}
+\textbf{This has been successfully.}
 
 \subsubsection{Test execution}
 \paragraph{Summit}
@@ -43,7 +43,7 @@ Time between shutter close and ingest mean:0.23482382218469838, std:0.0180585511
 Sample LargeFileObjectAvailable events from the USDF EFD (which will be verified as corresponding to the Summit EFD below).
 Retrieve the corresponding LFA objects from the USDF LFA object store.
 
-\textbf{This has been sucessfull.}
+\textbf{This has been successful.}
 \subsubsection{Test execution}
 In the same notebooks  listed earlier there is a section 3.2
 
@@ -76,6 +76,15 @@ Object is 8640 bytes. b'SIMPLE  =                    T / conforms to FITS standa
 Verify that images taken with the ScriptQueue that have nextVisit events issued can be processed by a pipeline.
 The pipeline will execute at least one step of single-frame instrument signature removal.
 Verification will consist of retrieving the data products from the \texttt{/repo/embargo} Butler repository.
+\textbf{This has been sucessfull.}
+\subsubsection{Test execution}
+In the USDF notebook we query to rasw for a goven night and also the prompt putput collection.
+Here we see only 25 processed images - soem of the raws are spectra in any case this shows prompt ran and ther e is output.
+\begin{lstlisting}
+There are 655 raw in collection: ['LATISS/raw/all'] in: /repo/embargo for exposure.day_obs = 20230523
+There are 25 calexp in collection: ['LATISS/prompt/output-2023-05-24/ApPipe/prompt-proto-service-00026'] in: /repo/embargo
+\end{lstlisting}
+
 
 \subsection{EFD data available }
 Choose at least 5 EFD topics at random from those available at the Summit.
