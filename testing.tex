@@ -30,7 +30,7 @@ There are 592 raw in collection: ['LATISS/raw/all'] in: /repo/embargo for exposu
 0 2023051100599
 \end{lstlisting}
 
-\paragraph {Ingest}
+\paragraph {Ingest} \label{sec:ingest}
 Also in the USDF notebook we get the ingest time and subtract the shutter close time to calculate the
 delay to ingest.
 \begin{lstlisting}
@@ -79,10 +79,18 @@ Verification will consist of retrieving the data products from the \texttt{/repo
 \textbf{This has been successful.}
 \subsubsection{Test execution}
 In the USDF notebook we query to Raws for a given night and also the prompt output collection.
-Here we see only 25 processed images - some of the raws are spectra in any case this shows prompt ran and the e is output.
+Here we see  25 processed images of some 40 take in the evening.
+
 \begin{lstlisting}
 There are 655 raw in collection: ['LATISS/raw/all'] in: /repo/embargo for exposure.day_obs = 20230523
 There are 25 calexp in collection: ['LATISS/prompt/output-2023-05-24/ApPipe/prompt-proto-service-00026'] in: /repo/embargo
+\end{lstlisting}
+
+As we did in \secref{sec:ingest} we can look at the shouter close time of the exposure which was used to make the calibrated image in prompt processing and the ingest of the processed image.
+This gives an indication of prompt processing time.
+\begin{lstlisting}
+Time between shutter close and prompt mean:0.33115575866669145, std:0.20838310327912998, var:0.043423517732240555 minutes
+The min time was 0.19349045000003784 max time was 0.9423351500001687 minutes for the 25 images
 \end{lstlisting}
 
 
