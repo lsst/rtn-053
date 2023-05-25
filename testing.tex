@@ -49,12 +49,12 @@ In the same notebooks  listed earlier there is a section 3.2
 
 \paragraph{Summit} for given topic list large files on given day.
 \begin{lstlisting}
-Got 173 Large files availble since 2023-04-20 at summit
+Got 173 Large files available since 2023-04-20 at summit
 \end{lstlisting}
 
 \paragraph{USDF} check same topic same day in USDF.
 \begin{lstlisting}
-Got 173 Large files availble since 2023-04-20 at usdf
+Got 173 Large files available since 2023-04-20 at USDF
 result[168] https://s3.cp.lsst.org/rubinobs-lfa-cp/Electrometer:201/fits/2023/05/02/Electrometer:201_fits_2023-05-03T01:57:36.248.fits
 Access s3://rubin:rubinobs-lfa-cp/Electrometer:201/fits/2023/05/02/Electrometer:201_fits_2023-05-03T01:57:36.248.fits
 Object is 8640 bytes. b'SIMPLE  =                    T / conforms to FITS standard                      '
@@ -76,10 +76,10 @@ Object is 8640 bytes. b'SIMPLE  =                    T / conforms to FITS standa
 Verify that images taken with the ScriptQueue that have nextVisit events issued can be processed by a pipeline.
 The pipeline will execute at least one step of single-frame instrument signature removal.
 Verification will consist of retrieving the data products from the \texttt{/repo/embargo} Butler repository.
-\textbf{This has been sucessfull.}
+\textbf{This has been successful.}
 \subsubsection{Test execution}
-In the USDF notebook we query to rasw for a goven night and also the prompt putput collection.
-Here we see only 25 processed images - soem of the raws are spectra in any case this shows prompt ran and ther e is output.
+In the USDF notebook we query to Raws for a given night and also the prompt output collection.
+Here we see only 25 processed images - some of the raws are spectra in any case this shows prompt ran and the e is output.
 \begin{lstlisting}
 There are 655 raw in collection: ['LATISS/raw/all'] in: /repo/embargo for exposure.day_obs = 20230523
 There are 25 calexp in collection: ['LATISS/prompt/output-2023-05-24/ApPipe/prompt-proto-service-00026'] in: /repo/embargo
@@ -91,14 +91,14 @@ Choose at least 5 EFD topics at random from those available at the Summit.
 Choose at least 20 messages per topic from those available at the Summit, including 10 from the previous observing day and 10 from past history.
 Verify that all 100 messages are present in the USDF EFD.
 
-\textbf{This has been sucessfull.}
+\textbf{This has been successful.}
 
 Choose 5 more topics that have graphs in the Summit Chronograf.
 Verify that the graph shown for each topic for a specified time range is the same as that displayed by the USDF Chronograf.
 \subsubsection{Test execution}
 \paragraph{Summit} \label{sec:efdsummit}
 In the repo of this document \texttt{RTN-053-summit.ipynb} (\secref{sec:summitnb})  section 3.4
-selects soem 10s of monutes of data from andom topics from the same observing run abouve and from a day earlier in the month.
+selects some 10s of minutes of data from random topics from the same observing run above and from a day earlier in the month.
 The results are stored in files and compared to the same  queries at USDF.
 
 This is the output from the test run:
@@ -112,10 +112,10 @@ lsst.sal.MTMount.elevationDrives had 456 messages
 lsst.sal.GIS.logevent_heartbeat had 30 messages
 lsst.sal.GIS.logevent_heartbeat had 30 older messages
 lsst.sal.ESS.lightningStrikeStatus had 30 older messages
-Random selction of five 'summit' topics ['lsst.sal.ATPtg.mountPositions',
+Random selection of five 'summit' topics ['lsst.sal.ATPtg.mountPositions',
 'lsst.sal.MTAirCompressor.analogData', 'lsst.sal.MTMount.elevationDrives',
 'lsst.sal.GIS.logevent_heartbeat'] with messages on 2023-04-20
-Random selction of five 'summit' older topics ['lsst.sal.ATPtg.mountPositions',
+Random selection of five 'summit' older topics ['lsst.sal.ATPtg.mountPositions',
 'lsst.sal.MTAirCompressor.analogData', 'lsst.sal.GIS.logevent_heartbeat',
 'lsst.sal.ESS.lightningStrikeStatus'] with messages on 2023-05-02
 \end{lstlisting}
