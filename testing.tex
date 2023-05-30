@@ -76,6 +76,7 @@ Object is 8640 bytes. b'SIMPLE  =                    T / conforms to FITS standa
 Verify that images taken with the ScriptQueue that have nextVisit events issued can be processed by a pipeline.
 The pipeline will execute at least one step of single-frame instrument signature removal.
 Verification will consist of retrieving the data products from the \texttt{/repo/embargo} Butler repository.
+
 \textbf{This has been successful.}
 \subsubsection{Test execution}
 In the USDF notebook we query to Raws for a given night and also the prompt output collection.
@@ -101,9 +102,14 @@ Verify that all 100 messages are present in the USDF EFD.
 
 \textbf{This has been successful.}
 
-Choose 5 more topics that have graphs in the Summit Chronograf.
-Verify that the graph shown for each topic for a specified time range is the same as that displayed by the USDF Chronograf.
+Choose 5 more topics that have graphs in the Summit Chronograf. Verify that the graph
+shown for each topic for a specified time range is the same as that displayed by the USDF
+Chronograf
+
+\textbf{This has been successful - see \secref{sec:chrono}.}
+
 \subsubsection{Test execution}
+
 \paragraph{Summit} \label{sec:efdsummit}
 In the repo of this document \texttt{RTN-053-summit.ipynb} (\secref{sec:summitnb})  section 3.4
 selects some 10s of minutes of data from random topics from the same observing run above and from a day earlier in the month.
@@ -143,3 +149,80 @@ lsst.sal.MTAirCompressor.analogData had 46 messages - summit had 46
 lsst.sal.GIS.logevent_heartbeat had 30 messages - summit had 30
 lsst.sal.ESS.lightningStrikeStatus had 30 messages - summit had 30
 \end{lstlisting}
+
+\paragraph{Chronograph - Summit and USDF} \label{sec:chrono}
+
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[height=4in]{images/Summit_1.png}
+  \caption{Summit Chronograf 03-10-2023}
+  \label{fig:sub1}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[height=4in]{images/USDF_1.png}
+  \caption{USDF Chronograf 03-10-2023}
+  \label{fig:sub2}
+\end{subfigure}
+\label{fig:image1}
+\end{figure}
+\setstretch{0.25}
+Heartbeat Metrics compared between Summit and USDF Chronograf:
+\begin{itemize}
+  \item ATDome
+  \item ATDome Trajectory
+  \item ATAOS
+  \item ATHeaderService
+\end{itemize}
+
+\newpage
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[height=4in]{images/Summit_2.png}
+  \caption{Summit Chronograf 03-10-2023}
+  \label{fig:sub3}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[height=4in]{images/USDF_2.png}
+  \caption{USDF Chronograf 03-10-2023}
+  \label{fig:sub4}
+\end{subfigure}
+\label{fig:image2}
+\end{figure}
+Heartbeat Metrics compared between Summit and USDF Chronograf:
+\begin{itemize}
+  \item ATMCS
+  \item ATPneumatics
+  \item ATPtg
+  \item ATSpectrograph
+\end{itemize}
+
+\newpage
+\begin{figure}
+\centering
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[height=4in]{images/Summit_3.png}
+  \caption{Summit Chronograf 03-10-2023}
+  \label{fig:sub5}
+\end{subfigure}%
+\begin{subfigure}{.5\textwidth}
+  \centering
+  \includegraphics[height=4in]{images/USDF_3.png}
+  \caption{USDF Chronograf 03-10-2023}
+  \label{fig:sub6}
+\end{subfigure}
+\label{fig:image3}
+\end{figure}
+Heartbeat Metrics compared between Summit and USDF Chronograf:
+\begin{itemize}
+  \item MTHexapod
+  \item MTM1M3
+  \item MTM2
+\end{itemize}
+
