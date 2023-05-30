@@ -3,9 +3,18 @@
 \def\milestone{ USDF ready for ComCam processing}
 
 % Package imports go here.
-
+\usepackage{pdfpages}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{setspace}
 % Local commands go here.
 
+\usepackage{listings}
+\lstset{
+basicstyle=\small\ttfamily,
+columns=flexible,
+breaklines=true
+}
 %If you want glossaries
 %\input{aglossary.tex}
 %\makeglossaries
@@ -16,7 +25,7 @@
 % \setDocSubtitle{A subtitle}
 
 \author{%
-William O'Mullane, K.T. Lim
+William O'Mullane, K.T. Lim, Heinrich Reinking
 }
 
 \setDocRef{RTN-053}
@@ -37,6 +46,8 @@ This is a short description of   what we will have in place for the Milestone " 
 % See LPM-51 for version number policy.
 \setDocChangeRecord{%
   \addtohist{0.1}{2023-02-26}{Pre test.}{W. O'Mullane, K.T. Lim}
+  \addtohist{0.2}{2023-05-29}{Summit and USDF Chronograph plots}{H. Reinking}
+  \addtohist{1.0}{2023-05-30}{Tidy remove draft}{W. O'Mullane}
 }
 
 
@@ -50,6 +61,11 @@ This is a short description of   what we will have in place for the Milestone " 
 \input{body}
 
 \appendix
+
+\includepdf[pages=1,pagecommand={\section{Summit Notebook \label{sec:summitnb}}}]{RTN-053-summit}
+\includepdf[pages=2-]{RTN-053-summit}
+\includepdf[pages=1,pagecommand={\section{USDF Notebook \label{sec:usdfnb}}}]{RTN-053-USDF}
+\includepdf[pages=2-]{RTN-053-USDF}
 % Include all the relevant bib files.
 % https://lsst-texmf.lsst.io/lsstdoc.html#bibliographies
 \section{References} \label{sec:bib}
